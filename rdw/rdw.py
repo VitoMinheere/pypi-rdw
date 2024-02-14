@@ -34,6 +34,7 @@ class Rdw(object):
     _RDWAPI_TERUGROEP_ACTIE_STATUS = 't49b-isb7'
     _RDWAPI_TERUGROEP_INFORMEREN_EIGENAAR = '223d-3w9w'
     _RDWAPI_TOEGEVOEGDE_OBJECTEN = '5bwx-4xqb'
+    _RDWAPI_BRANDSTOF = '8ys7-d773'
 
     _current_status_code = None
 
@@ -123,6 +124,10 @@ class Rdw(object):
         """
 
         return self._get_rdwapi_data(self._RDWAPI_TOEGEVOEGDE_OBJECTEN, 'kenteken={}'.format(kenteken))
+
+    def get_fuel_information(self, kenteken):
+
+        return self._get_rdwapi_data(self._RDWAPI_BRANDSTOF, f"kenteken={kenteken}")
 
     def _get_rdwapi_data(self, endpoint, query):
         """
